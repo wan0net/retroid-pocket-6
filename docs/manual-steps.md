@@ -16,13 +16,15 @@ guarded by an Android confirmation screen.
 5. Buy/download your own Android copy of ES-DE. Either install it manually or
    run `./scripts/bootstrap.sh --profile dual-screen --es-de-apk local/ES-DE.apk`.
 6. In ES-DE, select the microSD `ROMs/` directory, grant requested storage access,
-   configure systems, scrape media, and choose ES-DE as the launcher only if
-   desired.
-7. Sign in to Steam inside GameNative. Credentials are entered on-device and
+   configure systems and scrape media. Keep ES-DE installed as a fallback.
+7. Open Cocoon and complete its setup wizard. Select the microSD `ROMs/` root,
+   link `/sdcard/ES-DE` for fallback art and metadata, and test several systems.
+   Only then choose Cocoon when Android asks for the default Home app.
+8. Sign in to Steam inside GameNative. Credentials are entered on-device and
    never belong in this repository.
-8. Supply only your own ROMs, BIOS/firmware, keys and game files. Nothing in
+9. Supply only your own ROMs, BIOS/firmware, keys and game files. Nothing in
    this project downloads them.
-9. For ES-DE Companion, follow its onboarding and grant all-files access. Enable
+10. For ES-DE Companion, follow its onboarding and grant all-files access. Enable
    Custom Event Scripts, Browsing Custom Event Scripts and Debug Mode in ES-DE.
 
 Dolphin controller mappings are not a manual prerequisite. If Dolphin was

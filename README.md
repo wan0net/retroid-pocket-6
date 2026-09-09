@@ -1,8 +1,9 @@
 # Retroid Pocket 6, as code
 
 Idempotent, reviewable provisioning for a Retroid Pocket 6 using ADB, shell and
-Obtainium. ES-DE is the frontend. The normal posture is no Google account, no
-Play Store dependency, and reversible disabling of optional Google apps.
+Obtainium. Cocoon Shell is the preferred launcher, with ES-DE retained as a
+tested fallback and metadata source. The normal posture is no Google account,
+no Play Store dependency, and reversible disabling of optional Google apps.
 
 The repository contains no ROMs, BIOS/firmware, console keys, paid APKs,
 credentials or user data.
@@ -27,7 +28,9 @@ credentials or user data.
   account state;
 - disables optional Google applications for the primary user without deleting
   their system APKs or touching core Android/Google runtime components;
-- leaves launcher choice, permissions and logins alone.
+- installs Cocoon Shell through the upstream GitHub release channel but leaves
+  the final default-launcher choice and permission prompts to the user;
+- leaves permissions and logins alone.
 
 ## Requirements
 
@@ -65,9 +68,9 @@ the break-glass override casually.
 
 ## App catalogue
 
-Both profiles include App Manager, GameNative (for games already owned on
-Steam/Epic/GOG), RetroArch AArch64, Dolphin, Azahar, PPSSPP, Vita3K, ARMSX2 and
-Moonlight.
+Both profiles include App Manager, Cocoon Shell, GameNative (for games already
+owned on Steam/Epic/GOG), RetroArch AArch64, Dolphin, Azahar, PPSSPP, Vita3K,
+ARMSX2 and Moonlight.
 
 - Standard uses upstream melonDS.
 - Dual-screen swaps in WatermelonDS and adds ES-DE Companion.
@@ -83,6 +86,13 @@ the base APK.
 
 ES-DE Companion is a semi-official dual-screen project and currently evolving
 quickly. Its core workflow is viable, but treat upgrades as changes to test.
+
+Cocoon is the preferred visible shell for this build because it supports
+single- and dual-screen layouts, Android app shortcuts and ES-DE metadata
+fallbacks. It is still beta software and its public repository is not a
+complete independently buildable source release, so ES-DE remains installed.
+Cocoon onboarding, Storage Access Framework permissions and selection as the
+Android Home app remain manual by design; see `config/cocoon/README.md`.
 
 See [the manual checklist](docs/manual-steps.md) for ES-DE licensing/download,
 Steam login, permission prompts, ROM/BIOS ownership and dual-screen onboarding.
@@ -126,6 +136,7 @@ config/device.env         Fail-closed RP6 identity and path policy
 config/optional-google-apps.txt
                           Reversible, narrowly scoped debloat policy
 config/es-de/             Non-destructive ES-DE extension hooks
+config/cocoon/            Cocoon onboarding paths and safety boundary
 config/dolphin/           RP6 controller profiles and per-game selections
 config/retroarch/         Built-in controller profile and hotkeys
 scripts/                  Bootstrap, configure, verify and validation logic

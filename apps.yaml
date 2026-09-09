@@ -20,6 +20,11 @@ apps:
     source: https://github.com/utkarshdalal/GameNative
     profiles: [standard, dual-screen]
     notes: PC games already owned on Steam, Epic or GOG; not GameHub.
+  - name: Cocoon Shell
+    package: rip.moth.cocoonshell
+    source: https://github.com/inssekt/CocoonFE
+    profiles: [standard, dual-screen]
+    notes: Android launcher and emulation frontend; keep ES-DE installed as a fallback.
   - name: RetroArch AArch64
     package: com.retroarch.aarch64
     source: https://buildbot.libretro.com/stable
