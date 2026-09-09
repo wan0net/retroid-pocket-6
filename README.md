@@ -15,7 +15,10 @@ credentials or user data.
   publisher-provided SHA-256;
 - stages a small, auditable Obtainium import for either a standard RP6 or the
   Retroid Dual Screen add-on;
-- creates an empty, predictable ROM/BIOS/ES-DE directory layout;
+- discovers one mounted microSD card and creates the empty ROM hierarchy there;
+- uses ES-DE's canonical system directory names such as `n3ds`, `nds`, `gc`,
+  `psx`, `ps2`, `psp`, `psvita` and `wii`;
+- creates predictable internal BIOS/ES-DE working directories;
 - reports installed apps and remaining manual work without scraping private
   account state;
 - leaves Google packages, launcher choice, permissions and logins alone.
@@ -78,7 +81,9 @@ Steam login, permission prompts, ROM/BIOS ownership and dual-screen onboarding.
 
 ## Commands and safety
 
-`make bootstrap` and `make configure` are safe to repeat. An existing Obtainium
+`make bootstrap` and `make configure` are safe to repeat. `make configure`
+requires exactly one mounted, writable public microSD volume and refuses to
+guess if none or multiple are present. An existing Obtainium
 install is left untouched; set `FORCE_OBTAINIUM_UPDATE=1` to reinstall the
 current upstream version. Directories are created with `mkdir -p`. Existing
 ES-DE configuration is never overwritten.

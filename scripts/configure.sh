@@ -8,22 +8,39 @@ source "$ROOT_DIR/scripts/lib.sh"
 
 assert_expected_device
 
+microsd_mount="$(find_microsd_mount)"
+roms_dir="$microsd_mount/$MICROSD_ROMS_DIR_NAME"
+
 while IFS= read -r device_dir; do
   [[ -n "$device_dir" ]] && ensure_device_dir "$device_dir"
 done <<EOF
 $DEVICE_PROJECT_DIR
-$DEVICE_ROMS_DIR
-$DEVICE_ROMS_DIR/3ds
-$DEVICE_ROMS_DIR/ds
-$DEVICE_ROMS_DIR/gamecube
-$DEVICE_ROMS_DIR/ps2
-$DEVICE_ROMS_DIR/psp
-$DEVICE_ROMS_DIR/psvita
-$DEVICE_ROMS_DIR/retroarch
-$DEVICE_ROMS_DIR/wii
+$roms_dir
+$roms_dir/arcade
+$roms_dir/atari2600
+$roms_dir/dreamcast
+$roms_dir/gb
+$roms_dir/gba
+$roms_dir/gbc
+$roms_dir/gc
+$roms_dir/genesis
+$roms_dir/mastersystem
+$roms_dir/n3ds
+$roms_dir/n64
+$roms_dir/nds
+$roms_dir/nes
+$roms_dir/pcengine
+$roms_dir/ps2
+$roms_dir/psp
+$roms_dir/psvita
+$roms_dir/psx
+$roms_dir/saturn
+$roms_dir/snes
+$roms_dir/wii
 $DEVICE_BIOS_DIR
 /sdcard/ES-DE
 EOF
 
-note 'Created the non-sensitive ROM, BIOS, ES-DE and project directories.'
+note "Created the ROM hierarchy on microSD at $roms_dir."
+note 'Created the internal BIOS, ES-DE and project directories.'
 note 'No ROMs, BIOS files, console keys, accounts or credentials were copied.'

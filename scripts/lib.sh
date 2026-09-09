@@ -76,3 +76,23 @@ package_installed() {
 ensure_device_dir() {
   "${ADB[@]}" shell mkdir -p "$1"
 }
+
+find_microsd_mount() {
+  local volume_ids count volume_id mount_path
+  volume_ids="$("${ADB[@]}" shell sm list-volumes public \
+    | tr -d '\r' \
+    | awk '$2 == "mounted" && $3 != "null" {print $3}')"
+  count="$(awk 'NF {count++} END {print count+0}' <<<"$volume_ids")"
+  [[ "$count" -eq 1 ]] || die "expected exactly one mounted public microSD volume; found $count"
+
+  volume_id="$volume_ids"
+  [[ "$volume_id" =~ ^[A-Za-z0-9][A-Za-z0-9_-]*-[A-Za-z0-9_-]+$ ]] \
+    || die "refusing unexpected microSD volume identifier: $volume_id"
+  mount_path="/storage/$volume_id"
+  "${ADB[@]}" shell test -d "$mount_path" \
+    || die "microSD mount does not exist: $mount_path"
+  "${ADB[@]}" shell test -w "$mount_path" \
+    || die "microSD mount is not writable: $mount_path"
+
+  printf '%s\n' "$mount_path"
+}

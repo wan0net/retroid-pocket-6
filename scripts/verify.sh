@@ -18,6 +18,8 @@ done
 [[ "$profile" == standard || "$profile" == dual-screen ]] || die "profile must be standard or dual-screen"
 
 assert_expected_device
+microsd_mount="$(find_microsd_mount)"
+roms_dir="$microsd_mount/$MICROSD_ROMS_DIR_NAME"
 
 missing=0
 check_package() {
@@ -53,7 +55,7 @@ else
   missing=$((missing + 1))
 fi
 
-for device_dir in "$DEVICE_PROJECT_DIR" "$DEVICE_ROMS_DIR" "$DEVICE_BIOS_DIR" /sdcard/ES-DE; do
+for device_dir in "$DEVICE_PROJECT_DIR" "$roms_dir" "$DEVICE_BIOS_DIR" /sdcard/ES-DE; do
   if "${ADB[@]}" shell test -d "$device_dir"; then
     printf 'ready      %s\n' "$device_dir"
   else
