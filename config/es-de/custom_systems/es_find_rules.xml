@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!-- Compatibility rules for emulator package names not yet known to ES-DE. -->
+<ruleList>
+  <emulator name="ARMSX2">
+    <rule type="androidpackage">
+      <!-- Current upstream ARMSX2 releases. -->
+      <entry>com.armsx2/.BootSplashActivity</entry>
+      <!-- Older releases retained as a fallback. -->
+      <entry>come.nanodata.armsx2/kr.co.iefriends.pcsx2.MainActivity</entry>
+      <entry>come.nanodata.armsx2.debug/kr.co.iefriends.pcsx2.MainActivity</entry>
+    </rule>
+  </emulator>
+</ruleList>
