@@ -1,0 +1,65 @@
+# Human-readable catalogue. Machine-ready Obtainium exports live in obtainium/.
+# Sources are upstream project pages or official project download pages.
+schema: 1
+defaults:
+  google_play_required: false
+  secrets_allowed: false
+apps:
+  - name: Obtainium
+    package: dev.imranr.obtainium
+    source: https://github.com/ImranR98/Obtainium
+    profiles: [standard, dual-screen]
+    bootstrap: true
+  - name: GameNative
+    package: app.gamenative
+    source: https://github.com/utkarshdalal/GameNative
+    profiles: [standard, dual-screen]
+    notes: PC games already owned on Steam, Epic or GOG; not GameHub.
+  - name: RetroArch AArch64
+    package: com.retroarch.aarch64
+    source: https://buildbot.libretro.com/stable
+    profiles: [standard, dual-screen]
+  - name: Dolphin Emulator
+    package: org.dolphinemu.dolphinemu
+    source: https://dolphin-emu.org/download/
+    profiles: [standard, dual-screen]
+  - name: Azahar
+    package: org.azahar_emu.azahar
+    source: https://github.com/azahar-emu/azahar
+    profiles: [standard, dual-screen]
+  - name: melonDS
+    package: me.magnum.melonds
+    source: https://github.com/rafaelvcaetano/melonDS-android
+    profiles: [standard]
+  - name: WatermelonDS
+    package: me.magnum.melondualds
+    source: https://github.com/SapphireRhodonite/WatermelonDS
+    profiles: [dual-screen]
+    notes: Dual-screen melonDS fork; replaces melonDS in this profile.
+  - name: PPSSPP
+    package: org.ppsspp.ppsspp
+    source: https://www.ppsspp.org/download/
+    profiles: [standard, dual-screen]
+  - name: Vita3K
+    package: org.vita3k.emulator
+    source: https://github.com/Vita3K/Vita3K-builds
+    profiles: [standard, dual-screen]
+  - name: ARMSX2
+    package: com.armsx2
+    source: https://github.com/ARMSX2/ARMSX2
+    profiles: [standard, dual-screen]
+    notes: Open-source ARM64 PS2 emulator; still maturing, so compatibility varies.
+  - name: Moonlight
+    package: com.limelight
+    source: https://github.com/moonlight-stream/moonlight-android
+    profiles: [standard, dual-screen]
+  - name: ES-DE Companion
+    package: com.esde.companion
+    source: https://github.com/RobZombie9043/es-de-companion
+    profiles: [dual-screen]
+    notes: Semi-official and rapidly evolving; expect setup changes or rough edges.
+manual_apps:
+  - name: ES-DE
+    packages: [org.es_de.frontend, com.es_de.frontend]
+    source: https://es-de.org
+    reason: The Android build is paid and must be supplied by the owner.

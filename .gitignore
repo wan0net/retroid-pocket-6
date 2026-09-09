@@ -1,0 +1,12 @@
+.DS_Store
+.idea/
+.vscode/
+local/
+work/
+*.apk
+*.aab
+*.keystore
+*.jks
+*.pem
+*.key
+*.env.local
