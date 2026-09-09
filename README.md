@@ -45,7 +45,8 @@ make verify PROFILE=standard
 
 For the Retroid Dual Screen add-on, substitute `PROFILE=dual-screen`. The
 bootstrap stages `obtainium-import.json` in the device's
-`Download/retroid-pocket-6` directory. Review and import it from Obtainium's
+top-level `Download` directory so Android's document picker can expose it
+reliably. Review and import it from Obtainium's
 **Import/Export -> Obtainium Import** screen.
 
 If more than one device is attached, select one explicitly:

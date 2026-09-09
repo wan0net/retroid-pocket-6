@@ -59,7 +59,8 @@ fi
 ensure_device_dir "$DEVICE_PROJECT_DIR"
 manifest="$ROOT_DIR/obtainium/apps.json"
 [[ "$profile" == dual-screen ]] && manifest="$ROOT_DIR/obtainium/apps-dual-screen.json"
-"${ADB[@]}" push "$manifest" "$DEVICE_PROJECT_DIR/obtainium-import.json" >/dev/null
+obtainium_import='/sdcard/Download/obtainium-import.json'
+"${ADB[@]}" push "$manifest" "$obtainium_import" >/dev/null
 
-note "Staged the $profile Obtainium import at $DEVICE_PROJECT_DIR/obtainium-import.json"
+note "Staged the $profile Obtainium import at $obtainium_import"
 note 'Manual next step: Obtainium -> Import/Export -> Obtainium Import, then select that file.'
