@@ -10,6 +10,11 @@ apps:
     source: https://github.com/ImranR98/Obtainium
     profiles: [standard, dual-screen]
     bootstrap: true
+  - name: App Manager
+    package: io.github.muntashirakon.AppManager
+    source: https://github.com/MuntashirAkon/AppManager
+    profiles: [standard, dual-screen]
+    notes: Open-source package, permission and process inspection utility.
   - name: GameNative
     package: app.gamenative
     source: https://github.com/utkarshdalal/GameNative

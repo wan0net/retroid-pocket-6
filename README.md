@@ -65,8 +65,9 @@ the break-glass override casually.
 
 ## App catalogue
 
-Both profiles include GameNative (for games already owned on Steam/Epic/GOG),
-RetroArch AArch64, Dolphin, Azahar, PPSSPP, Vita3K, ARMSX2 and Moonlight.
+Both profiles include App Manager, GameNative (for games already owned on
+Steam/Epic/GOG), RetroArch AArch64, Dolphin, Azahar, PPSSPP, Vita3K, ARMSX2 and
+Moonlight.
 
 - Standard uses upstream melonDS.
 - Dual-screen swaps in WatermelonDS and adds ES-DE Companion.

@@ -33,6 +33,7 @@ check_package() {
 }
 
 check_package dev.imranr.obtainium Obtainium
+check_package io.github.muntashirakon.AppManager 'App Manager'
 check_package app.gamenative GameNative
 check_package com.retroarch.aarch64 'RetroArch AArch64'
 check_package org.dolphinemu.dolphinemu Dolphin
