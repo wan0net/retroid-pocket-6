@@ -48,8 +48,45 @@ check_package org.vita3k.emulator Vita3K
 check_package com.armsx2 ARMSX2
 check_package com.limelight Moonlight
 
+check_managed_file() {
+  local local_path="$1" device_path="$2" label="$3"
+  if "${ADB[@]}" exec-out cat "$device_path" 2>/dev/null | cmp -s "$local_path" -; then
+    printf 'configured %-24s %s\n' "$label" "$device_path"
+  else
+    printf 'drifted    %-24s %s (run make configure-controls)\n' "$label" "$device_path"
+    missing=$((missing + 1))
+  fi
+}
+
+if package_installed com.retroarch.aarch64; then
+  check_managed_file "$ROOT_DIR/config/retroarch/retroarch.cfg" \
+    /sdcard/Android/data/com.retroarch.aarch64/files/retroarch.cfg RetroArch
+  check_managed_file \
+    "$ROOT_DIR/config/retroarch/autoconfig/android/Retroid_Pocket_Controller.cfg" \
+    /sdcard/RetroArch/autoconfig/android/Retroid_Pocket_Controller.cfg 'RP6 RetroPad'
+fi
+
+if package_installed org.dolphinemu.dolphinemu; then
+  check_managed_file "$ROOT_DIR/config/dolphin/GCPadNew.ini" \
+    /sdcard/Android/data/org.dolphinemu.dolphinemu/files/Config/GCPadNew.ini 'Dolphin GC'
+  check_managed_file "$ROOT_DIR/config/dolphin/WiimoteNew.ini" \
+    /sdcard/Android/data/org.dolphinemu.dolphinemu/files/Config/WiimoteNew.ini 'Dolphin Wii'
+fi
+
 if package_installed org.es_de.frontend || package_installed com.es_de.frontend; then
   printf 'installed  %-24s %s\n' '(detected)' 'ES-DE (manual distribution)'
+  while IFS=$'\t' read -r system_name emulator_label; do
+    [[ -n "$system_name" && "${system_name:0:1}" != '#' ]] || continue
+    gamelist="/sdcard/ES-DE/gamelists/$system_name/gamelist.xml"
+    if "${ADB[@]}" exec-out cat "$gamelist" 2>/dev/null \
+      | grep -Fq "<label>$emulator_label</label>"; then
+      printf 'configured %-24s %s\n' "ES-DE $system_name" "$emulator_label"
+    else
+      printf 'drifted    %-24s %s (run make configure-es-de)\n' \
+        "ES-DE $system_name" "$emulator_label"
+      missing=$((missing + 1))
+    fi
+  done < "$ROOT_DIR/config/es-de/emulators.tsv"
 else
   printf 'manual     %-24s %s\n' '(not detected)' 'ES-DE APK must be supplied by its owner'
   missing=$((missing + 1))

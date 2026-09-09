@@ -29,6 +29,11 @@ Dolphin controller mappings are not a manual prerequisite. If Dolphin was
 installed after the initial setup, run `make configure-dolphin`. Individual
 games with unusual motion controls may still need a game-specific profile.
 
+After installing RetroArch, download the cores listed in
+`docs/controls-and-emulators.md` using **Online Updater -> Core Downloader**.
+Android keeps downloaded cores in RetroArch's private storage, so this is the
+remaining controller/emulator setup step that ADB cannot safely perform.
+
 No Google account is required. This project does not disable or remove Google
 core services. `make configure` disables the optional apps in
 `config/optional-google-apps.txt` for user 0, including Chrome and Play Store.

@@ -21,6 +21,8 @@ credentials or user data.
 - creates predictable internal BIOS/ES-DE working directories;
 - installs reproducible RP6 controller profiles for Dolphin when Dolphin is
   present, including a sideways Wii Remote profile for supported games;
+- installs a RetroArch profile for the built-in controller and system-wide
+  ES-DE emulator selections while preserving gamelist content;
 - reports installed apps and remaining manual work without scraping private
   account state;
 - disables optional Google applications for the primary user without deleting
@@ -86,23 +88,27 @@ Steam login, permission prompts, ROM/BIOS ownership and dual-screen onboarding.
 
 ## Commands and safety
 
-`make bootstrap`, `make configure` and `make configure-dolphin` are safe to
-repeat. `make configure`
+`make bootstrap`, `make configure`, `make configure-controls` and
+`make configure-es-de` are safe to repeat. `make configure`
 requires exactly one mounted, writable public microSD volume and refuses to
 guess if none or multiple are present. It disables the optional packages listed
 in `config/optional-google-apps.txt` using Android's reversible `disable-user`
 operation. Use `make restore-google-apps` to re-enable them. An existing Obtainium
 install is left untouched; set `FORCE_OBTAINIUM_UPDATE=1` to reinstall the
 current upstream version. Directories are created with `mkdir -p`. Existing
-ES-DE configuration is never overwritten.
+ES-DE game entries and metadata are preserved; only each managed system's
+emulator-selection block is updated.
 
-When Dolphin is installed, `make configure` also installs the committed RP6
-controller mappings. Run `make configure-dolphin` to repeat only that step.
+When the emulators are installed, `make configure` also installs the committed
+RP6 controller mappings and ES-DE defaults. Run `make configure-controls`,
+`make configure-dolphin` or `make configure-es-de` to repeat a narrower step.
 Before the first replacement, Dolphin's active controller files are preserved
 beside them with a `.rp6-before-automation` suffix. The default Wii mapping is
 Wii Remote + Nunchuk; New Super Mario Bros. Wii (`SMNP01`) automatically uses
 the sideways profile. Other games can select `RP6-Wii-Nunchuk`,
 `RP6-Wii-Sideways` or `RP6-Wii-Classic` from Dolphin's profiles screen.
+See [controls and emulator defaults](docs/controls-and-emulators.md) for the
+complete mapping, RetroArch hotkeys and the unrooted-Android boundary.
 
 `make verify` reports gaps but exits successfully after the device safety gate.
 Use `make verify-strict` when every selected app and directory must exist.
@@ -120,6 +126,7 @@ config/optional-google-apps.txt
                           Reversible, narrowly scoped debloat policy
 config/es-de/             Non-destructive ES-DE extension hooks
 config/dolphin/           RP6 controller profiles and per-game selections
+config/retroarch/         Built-in controller profile and hotkeys
 scripts/                  Bootstrap, configure, verify and validation logic
 docs/manual-steps.md      Work that remains intentionally interactive
 ```

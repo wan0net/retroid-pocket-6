@@ -78,6 +78,34 @@ ensure_device_dir() {
   "${ADB[@]}" shell mkdir -p "$1" </dev/null
 }
 
+deploy_device_file() {
+  local source_path="$1" destination_path="$2" display_root="${3:-}"
+  local destination_dir temporary_path backup_path display_path
+
+  [[ -f "$source_path" ]] || die "source file does not exist: $source_path"
+  destination_dir="${destination_path%/*}"
+  temporary_path="${destination_path}.rp6-new"
+  backup_path="${destination_path}.rp6-before-automation"
+  display_path="${destination_path#"$display_root"/}"
+
+  ensure_device_dir "$destination_dir"
+  "${ADB[@]}" push "$source_path" "$temporary_path" >/dev/null
+  if "${ADB[@]}" shell test -f "$destination_path" </dev/null \
+    && "${ADB[@]}" shell cmp -s "$temporary_path" "$destination_path" </dev/null; then
+    "${ADB[@]}" shell rm "$temporary_path" </dev/null
+    note "Unchanged: $display_path"
+    return
+  fi
+
+  if "${ADB[@]}" shell test -f "$destination_path" </dev/null \
+    && ! "${ADB[@]}" shell test -f "$backup_path" </dev/null; then
+    "${ADB[@]}" shell cp "$destination_path" "$backup_path" </dev/null
+    note "Backed up $display_path"
+  fi
+  "${ADB[@]}" shell mv "$temporary_path" "$destination_path" </dev/null
+  note "Installed: $display_path"
+}
+
 find_microsd_mount() {
   local volume_ids count volume_id mount_path
   volume_ids="$("${ADB[@]}" shell sm list-volumes public \

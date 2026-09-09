@@ -20,9 +20,21 @@ done
 
 if command -v ruby >/dev/null 2>&1; then
   ruby -e 'require "yaml"; YAML.load_file("apps.yaml")'
+  ruby -c scripts/set-es-de-emulator.rb >/dev/null
 else
   printf '%s\n' 'warning: ruby unavailable; skipped YAML parse check' >&2
 fi
+
+awk -F '\t' '
+  /^[[:space:]]*#/ || /^[[:space:]]*$/ { next }
+  NF != 2 || $1 == "" || $2 == "" { exit 1 }
+' config/es-de/emulators.tsv \
+  || { printf '%s\n' 'invalid ES-DE emulator manifest' >&2; exit 1; }
+
+duplicates="$(awk -F '\t' '!/^[[:space:]]*(#|$)/ {print $1}' \
+  config/es-de/emulators.tsv | sort | uniq -d)"
+[[ -z "$duplicates" ]] \
+  || { printf 'duplicate ES-DE systems: %s\n' "$duplicates" >&2; exit 1; }
 
 if command -v shellcheck >/dev/null 2>&1; then
   shellcheck scripts/*.sh

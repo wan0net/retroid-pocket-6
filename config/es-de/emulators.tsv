@@ -1,0 +1,22 @@
+# ES-DE system name<TAB>exact emulator label from ES-DE 3.4.1 Android
+arcade	MAME - Current
+atari2600	Stella
+dreamcast	Flycast
+gb	Gambatte
+gba	mGBA
+gbc	Gambatte
+gc	Dolphin (Standalone)
+genesis	Genesis Plus GX
+mastersystem	Genesis Plus GX
+n3ds	Azahar (Standalone)
+n64	Mupen64Plus-Next
+nds	melonDS (Standalone)
+nes	Mesen
+pcengine	Beetle PCE
+ps2	ARMSX2 (Standalone)
+psp	PPSSPP (Standalone)
+psvita	Vita3K (Standalone)
+psx	SwanStation
+saturn	Beetle Saturn
+snes	Snes9x - Current
+wii	Dolphin (Standalone)
