@@ -74,7 +74,8 @@ package_installed() {
 }
 
 ensure_device_dir() {
-  "${ADB[@]}" shell mkdir -p "$1"
+  # Do not let adb consume a caller's loop or pipeline input.
+  "${ADB[@]}" shell mkdir -p "$1" </dev/null
 }
 
 find_microsd_mount() {
