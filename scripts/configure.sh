@@ -46,3 +46,9 @@ EOF
 note "Created the ROM hierarchy on microSD at $roms_dir."
 note 'Created the internal BIOS, ES-DE and project directories.'
 note 'No ROMs, BIOS files, console keys, accounts or credentials were copied.'
+
+if package_installed org.dolphinemu.dolphinemu; then
+  "$ROOT_DIR/scripts/configure-dolphin.sh"
+else
+  note 'Dolphin is not installed yet; run make configure-dolphin after installing it.'
+fi

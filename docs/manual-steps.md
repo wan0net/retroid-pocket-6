@@ -10,7 +10,7 @@ guarded by an Android confirmation screen.
 3. Run `make check-device`, then `make bootstrap PROFILE=dual-screen` if the
    Retroid Dual Screen add-on will be used.
 4. In Obtainium, import
-   `/sdcard/Download/retroid-pocket-6/obtainium-import.json`, review the list,
+   `/sdcard/Download/obtainium-import.json`, review the list,
    and install the selected apps. Android may ask for permission to install
    unknown apps.
 5. Buy/download your own Android copy of ES-DE. Either install it manually or
@@ -24,6 +24,10 @@ guarded by an Android confirmation screen.
    this project downloads them.
 9. For ES-DE Companion, follow its onboarding and grant all-files access. Enable
    Custom Event Scripts, Browsing Custom Event Scripts and Debug Mode in ES-DE.
+
+Dolphin controller mappings are not a manual prerequisite. If Dolphin was
+installed after the initial setup, run `make configure-dolphin`. Individual
+games with unusual motion controls may still need a game-specific profile.
 
 No Google account is required. This project does not disable or remove Google
 core services. `make configure` disables the optional apps in

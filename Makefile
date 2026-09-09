@@ -1,7 +1,7 @@
 SHELL := /usr/bin/env bash
 PROFILE ?= standard
 
-.PHONY: help check-device bootstrap configure disable-google-apps restore-google-apps verify verify-strict validate
+.PHONY: help check-device bootstrap configure configure-dolphin disable-google-apps restore-google-apps verify verify-strict validate
 
 help:
 	@printf '%s\n' \
@@ -9,6 +9,7 @@ help:
 	  'make bootstrap PROFILE=dual-screen' \
 	  '                              Install Obtainium and stage its import' \
 	  'make configure                Create the non-sensitive device layout' \
+	  'make configure-dolphin        Install RP6 controller mappings in Dolphin' \
 	  'make disable-google-apps      Disable optional Google apps for user 0' \
 	  'make restore-google-apps      Re-enable the managed Google apps' \
 	  'make verify                   Report provisioned and manual state' \
@@ -23,6 +24,9 @@ bootstrap:
 
 configure:
 	@./scripts/configure.sh
+
+configure-dolphin:
+	@./scripts/configure-dolphin.sh
 
 disable-google-apps:
 	@./scripts/google-apps.sh disable
