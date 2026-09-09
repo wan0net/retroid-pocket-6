@@ -1,7 +1,7 @@
 SHELL := /usr/bin/env bash
 PROFILE ?= standard
 
-.PHONY: help check-device bootstrap configure verify verify-strict validate
+.PHONY: help check-device bootstrap configure disable-google-apps restore-google-apps verify verify-strict validate
 
 help:
 	@printf '%s\n' \
@@ -9,6 +9,8 @@ help:
 	  'make bootstrap PROFILE=dual-screen' \
 	  '                              Install Obtainium and stage its import' \
 	  'make configure                Create the non-sensitive device layout' \
+	  'make disable-google-apps      Disable optional Google apps for user 0' \
+	  'make restore-google-apps      Re-enable the managed Google apps' \
 	  'make verify                   Report provisioned and manual state' \
 	  'make verify-strict            Fail unless every selected app is present' \
 	  'make validate                 Validate repository files locally'
@@ -21,6 +23,12 @@ bootstrap:
 
 configure:
 	@./scripts/configure.sh
+
+disable-google-apps:
+	@./scripts/google-apps.sh disable
+
+restore-google-apps:
+	@./scripts/google-apps.sh enable
 
 verify:
 	@./scripts/verify.sh --profile "$(PROFILE)"

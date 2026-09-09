@@ -1,0 +1,20 @@
+# Optional Google apps disabled for Android user 0 by configure.sh.
+# One exact package ID per line. Missing packages are safely skipped.
+com.android.chrome
+com.android.vending
+com.google.android.apps.docs
+com.google.android.apps.maps
+com.google.android.apps.photos
+com.google.android.apps.restore
+com.google.android.apps.subscriptions.red
+com.google.android.apps.tachyon
+com.google.android.apps.wellbeing
+com.google.android.calendar
+com.google.android.feedback
+com.google.android.gm
+com.google.android.googlequicksearchbox
+com.google.android.partnersetup
+com.google.android.play.games
+com.google.android.videos
+com.google.android.youtube
+com.google.android.apps.youtube.music

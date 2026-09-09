@@ -26,4 +26,8 @@ guarded by an Android confirmation screen.
    Custom Event Scripts, Browsing Custom Event Scripts and Debug Mode in ES-DE.
 
 No Google account is required. This project does not disable or remove Google
-system packages; leaving them unsigned-in is the default posture.
+core services. `make configure` disables the optional apps in
+`config/optional-google-apps.txt` for user 0, including Chrome and Play Store.
+It deliberately retains Play Services, Google Services Framework, WebView,
+Setup Wizard, permission/network modules and the installed keyboard. Run
+`make restore-google-apps` to reverse every managed disable operation.

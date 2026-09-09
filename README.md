@@ -2,7 +2,7 @@
 
 Idempotent, reviewable provisioning for a Retroid Pocket 6 using ADB, shell and
 Obtainium. ES-DE is the frontend. The normal posture is no Google account, no
-Play Store dependency, and no removal of Google system components.
+Play Store dependency, and reversible disabling of optional Google apps.
 
 The repository contains no ROMs, BIOS/firmware, console keys, paid APKs,
 credentials or user data.
@@ -21,7 +21,9 @@ credentials or user data.
 - creates predictable internal BIOS/ES-DE working directories;
 - reports installed apps and remaining manual work without scraping private
   account state;
-- leaves Google packages, launcher choice, permissions and logins alone.
+- disables optional Google applications for the primary user without deleting
+  their system APKs or touching core Android/Google runtime components;
+- leaves launcher choice, permissions and logins alone.
 
 ## Requirements
 
@@ -83,7 +85,9 @@ Steam login, permission prompts, ROM/BIOS ownership and dual-screen onboarding.
 
 `make bootstrap` and `make configure` are safe to repeat. `make configure`
 requires exactly one mounted, writable public microSD volume and refuses to
-guess if none or multiple are present. An existing Obtainium
+guess if none or multiple are present. It disables the optional packages listed
+in `config/optional-google-apps.txt` using Android's reversible `disable-user`
+operation. Use `make restore-google-apps` to re-enable them. An existing Obtainium
 install is left untouched; set `FORCE_OBTAINIUM_UPDATE=1` to reinstall the
 current upstream version. Directories are created with `mkdir -p`. Existing
 ES-DE configuration is never overwritten.
@@ -100,6 +104,8 @@ recovery and policy updates and is deliberately noisy.
 apps.yaml                 Human-readable desired catalogue
 obtainium/                Importable standard and dual-screen exports
 config/device.env         Fail-closed RP6 identity and path policy
+config/optional-google-apps.txt
+                          Reversible, narrowly scoped debloat policy
 config/es-de/             Non-destructive ES-DE extension hooks
 scripts/                  Bootstrap, configure, verify and validation logic
 docs/manual-steps.md      Work that remains intentionally interactive

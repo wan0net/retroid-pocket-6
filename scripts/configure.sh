@@ -11,6 +11,8 @@ assert_expected_device
 microsd_mount="$(find_microsd_mount)"
 roms_dir="$microsd_mount/$MICROSD_ROMS_DIR_NAME"
 
+"$ROOT_DIR/scripts/google-apps.sh" disable
+
 while IFS= read -r device_dir; do
   [[ -n "$device_dir" ]] && ensure_device_dir "$device_dir"
 done <<EOF

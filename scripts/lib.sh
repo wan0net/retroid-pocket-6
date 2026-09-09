@@ -70,7 +70,7 @@ assert_expected_device() {
 }
 
 package_installed() {
-  "${ADB[@]}" shell pm path "$1" >/dev/null 2>&1
+  "${ADB[@]}" shell pm path "$1" </dev/null >/dev/null 2>&1
 }
 
 ensure_device_dir() {
