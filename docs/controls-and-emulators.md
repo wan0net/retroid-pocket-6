@@ -24,7 +24,8 @@ when the desired file is already present.
 - **Dolphin:** GameCube, Wii Remote + Nunchuk, sideways Wii Remote and Wii
   Classic Controller profiles are installed. `SMNP01` selects the sideways
   profile automatically.
-- **Azahar, WatermelonDS/melonDS, PPSSPP, Vita3K and ARMSX2:** these consume the
+- **Azahar, WatermelonDS/melonDS, PPSSPP, Vita3K, ARMSX2, X1 BOX, XenDroid and
+  Eden:** these consume the
   RP6's standard Android gamepad interface. Their Android releases store most
   control preferences in private app storage, which ADB cannot safely replace
   on an unrooted device. Defaults are therefore used unless a particular game
@@ -53,6 +54,9 @@ the RP6:
 | PlayStation 2 | ARMSX2 (Standalone) |
 | PSP | PPSSPP (Standalone) |
 | PlayStation Vita | Vita3K (Standalone) |
+| Nintendo Switch | Eden (Standalone) |
+| Microsoft Xbox | X1 BOX (Standalone) |
+| Microsoft Xbox 360 | XenDroid (Standalone) |
 | Arcade | MAME - Current |
 | Atari 2600 | Stella |
 | Dreamcast | Flycast |
@@ -69,6 +73,11 @@ the RP6:
 ES-DE stores a system-wide choice in that system's `gamelist.xml`. The script
 changes only its `alternativeEmulator` block. Existing game entries, scraped
 metadata, favourites, play counts and play time remain untouched.
+
+ES-DE 3.4.1 does not bundle all three launch definitions, so the toolkit also
+manages `custom_systems/es_find_rules.xml` and `custom_systems/es_systems.xml`.
+These define the package activities and Android intents used for direct game
+launches. Restart ES-DE after changing or upgrading these emulators.
 
 RetroArch cores themselves must be installed using RetroArch's **Online
 Updater -> Core Downloader**. Android keeps the core directory private, so a

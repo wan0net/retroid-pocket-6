@@ -38,7 +38,10 @@ $roms_dir/psvita
 $roms_dir/psx
 $roms_dir/saturn
 $roms_dir/snes
+$roms_dir/switch
 $roms_dir/wii
+$roms_dir/xbox
+$roms_dir/xbox360
 $DEVICE_BIOS_DIR
 /sdcard/ES-DE
 EOF

@@ -21,6 +21,11 @@ trap cleanup EXIT
 
 "${ADB[@]}" shell am force-stop org.es_de.frontend </dev/null
 
+for custom_file in es_find_rules.xml es_systems.xml; do
+  deploy_device_file "$ROOT_DIR/config/es-de/custom_systems/$custom_file" \
+    "$ESDE_DIR/custom_systems/$custom_file" "$ESDE_DIR"
+done
+
 while IFS=$'\t' read -r system_name emulator_label; do
   [[ -n "$system_name" && "${system_name:0:1}" != '#' ]] || continue
   [[ -n "$emulator_label" ]] || die "missing emulator label for $system_name"

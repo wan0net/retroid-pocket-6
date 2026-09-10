@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!-- RP6 standalone emulator definitions not yet bundled with ES-DE 3.4.1. -->
+<systemList>
+  <system>
+    <name>switch</name>
+    <fullname>Nintendo Switch</fullname>
+    <path>%ROMPATH%/switch</path>
+    <extension>.nca .NCA .nro .NRO .nso .NSO .nsp .NSP .xci .XCI</extension>
+    <command label="Eden (Standalone)">%EMULATOR_EDEN% %ACTION%=android.nfc.action.TECH_DISCOVERED %DATA%=%ROMPROVIDER%</command>
+    <platform>switch</platform>
+    <theme>switch</theme>
+  </system>
+  <system>
+    <name>xbox</name>
+    <fullname>Microsoft Xbox</fullname>
+    <path>%ROMPATH%/xbox</path>
+    <extension>.iso .ISO .xiso .XISO</extension>
+    <command label="X1 BOX (Standalone)">%EMULATOR_X1-BOX% %ACTION%=android.intent.action.VIEW %DATA%=%ROMSAF%</command>
+    <platform>xbox</platform>
+    <theme>xbox</theme>
+  </system>
+  <system>
+    <name>xbox360</name>
+    <fullname>Microsoft Xbox 360</fullname>
+    <path>%ROMPATH%/xbox360</path>
+    <extension>.iso .ISO .xex .XEX .zar .ZAR</extension>
+    <command label="XenDroid (Standalone)">%EMULATOR_XENDROID% %ACTION%=android.intent.action.VIEW %EXTRA_AutoStartFile%=%ROMSAF%</command>
+    <platform>xbox360</platform>
+    <theme>xbox360</theme>
+  </system>
+</systemList>

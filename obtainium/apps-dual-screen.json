@@ -140,6 +140,39 @@
       "overrideSource": "GitHub"
     },
     {
+      "id": "com.izzy2lost.x1box",
+      "url": "https://github.com/WinDroidEmulation/x1-box",
+      "author": "WinDroidEmulation",
+      "name": "X1 BOX",
+      "preferredApkIndex": 0,
+      "additionalSettings": "{\"includePrereleases\":false,\"fallbackToOlderReleases\":true,\"filterReleaseTitlesByRegEx\":\"\",\"filterReleaseNotesByRegEx\":\"\",\"verifyLatestTag\":false,\"sortMethodChoice\":\"date\",\"useLatestAssetDateAsReleaseDate\":false,\"releaseTitleAsVersion\":false,\"github-creds\":\"\",\"GHReqPrefix\":\"\",\"trackOnly\":false,\"versionExtractionRegEx\":\"\",\"matchGroupToUse\":\"\",\"versionDetection\":true,\"releaseDateAsVersion\":false,\"useVersionCodeAsOSVersion\":false,\"apkFilterRegEx\":\"^X1-BOX-[0-9.]+\\\\.apk$\",\"invertAPKFilter\":false,\"autoApkFilterByArch\":false,\"appName\":\"X1 BOX\",\"appAuthor\":\"WinDroidEmulation\",\"shizukuPretendToBeGooglePlay\":false,\"allowInsecure\":false,\"exemptFromBackgroundUpdates\":false,\"skipUpdateNotifications\":false,\"about\":\"Experimental original Xbox emulator based on xemu\",\"refreshBeforeDownload\":false,\"includeZips\":false,\"zippedApkFilterRegEx\":\"\"}",
+      "categories": ["Emulator"],
+      "allowIdChange": false,
+      "overrideSource": "GitHub"
+    },
+    {
+      "id": "xendroid.compose",
+      "url": "https://github.com/rfandango/XenDroid",
+      "author": "rfandango",
+      "name": "XenDroid",
+      "preferredApkIndex": 0,
+      "additionalSettings": "{\"includePrereleases\":false,\"fallbackToOlderReleases\":true,\"filterReleaseTitlesByRegEx\":\"\",\"filterReleaseNotesByRegEx\":\"\",\"verifyLatestTag\":false,\"sortMethodChoice\":\"date\",\"useLatestAssetDateAsReleaseDate\":false,\"releaseTitleAsVersion\":false,\"github-creds\":\"\",\"GHReqPrefix\":\"\",\"trackOnly\":false,\"versionExtractionRegEx\":\"\",\"matchGroupToUse\":\"\",\"versionDetection\":true,\"releaseDateAsVersion\":false,\"useVersionCodeAsOSVersion\":false,\"apkFilterRegEx\":\"^XenDroid_Release_.*\\\\.apk$\",\"invertAPKFilter\":false,\"autoApkFilterByArch\":false,\"appName\":\"XenDroid\",\"appAuthor\":\"rfandango\",\"shizukuPretendToBeGooglePlay\":false,\"allowInsecure\":false,\"exemptFromBackgroundUpdates\":false,\"skipUpdateNotifications\":false,\"about\":\"Experimental Xbox 360 emulator for Snapdragon 8 Gen 2 or newer\",\"refreshBeforeDownload\":false,\"includeZips\":false,\"zippedApkFilterRegEx\":\"\"}",
+      "categories": ["Emulator"],
+      "allowIdChange": false,
+      "overrideSource": "GitHub"
+    },
+    {
+      "id": "dev.eden.eden_emulator",
+      "url": "https://stable.eden-emu.dev/latest/release.json",
+      "author": "eden-emu",
+      "name": "Eden",
+      "preferredApkIndex": 0,
+      "additionalSettings": "{\"intermediateLink\":[],\"customLinkFilterRegex\":\"Eden-Android-.*-standard\\\\.apk$\",\"filterByLinkText\":false,\"matchLinksOutsideATags\":true,\"skipSort\":false,\"reverseSort\":false,\"sortByLastLinkSegment\":false,\"versionExtractWholePage\":true,\"requestHeader\":[{\"requestHeader\":\"User-Agent: Obtainium/1.0\"}],\"defaultPseudoVersioningMethod\":\"partialAPKHash\",\"trackOnly\":false,\"versionExtractionRegEx\":\"\\\"tag_name\\\"\\\\s*:\\\\s*\\\"(?:v)?([^\\\"]+)\\\"\",\"matchGroupToUse\":\"$1\",\"versionDetection\":false,\"releaseDateAsVersion\":false,\"useVersionCodeAsOSVersion\":false,\"apkFilterRegEx\":\"\",\"invertAPKFilter\":false,\"autoApkFilterByArch\":true,\"appName\":\"Eden\",\"appAuthor\":\"\",\"shizukuPretendToBeGooglePlay\":false,\"allowInsecure\":false,\"exemptFromBackgroundUpdates\":false,\"skipUpdateNotifications\":false,\"about\":\"Nintendo Switch emulator\",\"refreshBeforeDownload\":false,\"includeZips\":false,\"zippedApkFilterRegEx\":\"\"}",
+      "categories": ["Emulator"],
+      "allowIdChange": true,
+      "overrideSource": "HTML"
+    },
+    {
       "id": "com.limelight",
       "url": "https://github.com/moonlight-stream/moonlight-android",
       "author": "moonlight-stream",

@@ -10,4 +10,19 @@
       <entry>come.nanodata.armsx2.debug/kr.co.iefriends.pcsx2.MainActivity</entry>
     </rule>
   </emulator>
+  <emulator name="EDEN">
+    <rule type="androidpackage">
+      <entry>dev.eden.eden_emulator/org.yuzu.yuzu_emu.activities.EmulationActivity</entry>
+    </rule>
+  </emulator>
+  <emulator name="X1-BOX">
+    <rule type="androidpackage">
+      <entry>com.izzy2lost.x1box/.LauncherActivity</entry>
+    </rule>
+  </emulator>
+  <emulator name="XENDROID">
+    <rule type="androidpackage">
+      <entry>xendroid.compose/.EmulatorHostActivity</entry>
+    </rule>
+  </emulator>
 </ruleList>

@@ -18,7 +18,7 @@ credentials or user data.
   Retroid Dual Screen add-on;
 - discovers one mounted microSD card and creates the empty ROM hierarchy there;
 - uses ES-DE's canonical system directory names such as `n3ds`, `nds`, `gc`,
-  `psx`, `ps2`, `psp`, `psvita` and `wii`;
+  `psx`, `ps2`, `psp`, `psvita`, `switch`, `wii`, `xbox` and `xbox360`;
 - creates predictable internal BIOS/ES-DE working directories;
 - installs reproducible RP6 controller profiles for Dolphin when Dolphin is
   present, including a sideways Wii Remote profile for supported games;
@@ -70,7 +70,7 @@ the break-glass override casually.
 
 Both profiles include App Manager, Aurora Store, Brave Browser, Cocoon Shell,
 GameNative (for games already owned on Steam/Epic/GOG), RetroArch AArch64,
-Dolphin, Azahar, PPSSPP, Vita3K, ARMSX2 and Moonlight.
+Dolphin, Azahar, PPSSPP, Vita3K, ARMSX2, X1 BOX, XenDroid, Eden and Moonlight.
 
 - Standard uses upstream melonDS.
 - Dual-screen swaps in WatermelonDS and adds ES-DE Companion.
@@ -87,6 +87,14 @@ mature than long-established emulators, so compatibility varies. NetherSX2 is
 not bundled because its normal workflow patches a user-supplied proprietary
 AetherSX2 APK; advanced users can add that workflow locally without publishing
 the base APK.
+
+X1 BOX and XenDroid are experimental Android ports for original Xbox and Xbox
+360 respectively. X1 BOX requires user-supplied MCPX/BIOS/HDD files. XenDroid's
+documented minimum is Snapdragon 8 Gen 2 with Adreno 740, which exactly matches
+the RP6, but game compatibility remains early. Eden uses the stable standard
+Android build from `stable.eden-emu.dev`; the similarly named third-party
+GitHub repositories are deliberately not used. Xbox console files, Switch
+firmware, keys and games must come from hardware and games you own.
 
 ES-DE Companion is a semi-official dual-screen project and currently evolving
 quickly. Its core workflow is viable, but treat upgrades as changes to test.
@@ -111,8 +119,10 @@ in `config/optional-google-apps.txt` using Android's reversible `disable-user`
 operation. Use `make restore-google-apps` to re-enable them. An existing Obtainium
 install is left untouched; set `FORCE_OBTAINIUM_UPDATE=1` to reinstall the
 current upstream version. Directories are created with `mkdir -p`. Existing
-ES-DE game entries and metadata are preserved; only each managed system's
-emulator-selection block is updated.
+ES-DE game entries and metadata are preserved; each managed system's
+emulator-selection block is updated. The two managed custom-system XML files
+add Eden, X1 BOX and XenDroid launch rules; a pre-existing file is retained once
+with the `.rp6-before-automation` suffix before replacement.
 
 When the emulators are installed, `make configure` also installs the committed
 RP6 controller mappings and ES-DE defaults. Run `make configure-controls`,

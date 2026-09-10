@@ -54,6 +54,9 @@ fi
 check_package org.ppsspp.ppsspp PPSSPP
 check_package org.vita3k.emulator Vita3K
 check_package com.armsx2 ARMSX2
+check_package com.izzy2lost.x1box 'X1 BOX'
+check_package xendroid.compose XenDroid
+check_package dev.eden.eden_emulator Eden
 check_package com.limelight Moonlight
 
 check_managed_file() {
@@ -83,6 +86,10 @@ fi
 
 if package_installed org.es_de.frontend || package_installed com.es_de.frontend; then
   printf 'installed  %-24s %s\n' '(detected)' 'ES-DE (manual distribution)'
+  check_managed_file "$ROOT_DIR/config/es-de/custom_systems/es_find_rules.xml" \
+    /sdcard/ES-DE/custom_systems/es_find_rules.xml 'ES-DE find rules'
+  check_managed_file "$ROOT_DIR/config/es-de/custom_systems/es_systems.xml" \
+    /sdcard/ES-DE/custom_systems/es_systems.xml 'ES-DE systems'
   while IFS=$'\t' read -r system_name emulator_label; do
     [[ -n "$system_name" && "${system_name:0:1}" != '#' ]] || continue
     gamelist="/sdcard/ES-DE/gamelists/$system_name/gamelist.xml"
@@ -100,7 +107,14 @@ else
   missing=$((missing + 1))
 fi
 
-for device_dir in "$DEVICE_PROJECT_DIR" "$roms_dir" "$DEVICE_BIOS_DIR" /sdcard/ES-DE; do
+for device_dir in \
+  "$DEVICE_PROJECT_DIR" \
+  "$roms_dir" \
+  "$roms_dir/switch" \
+  "$roms_dir/xbox" \
+  "$roms_dir/xbox360" \
+  "$DEVICE_BIOS_DIR" \
+  /sdcard/ES-DE; do
   if "${ADB[@]}" shell test -d "$device_dir"; then
     printf 'ready      %s\n' "$device_dir"
   else

@@ -38,7 +38,10 @@ for package_name in \
   me.magnum.melondualds \
   org.ppsspp.ppsspp \
   org.vita3k.emulator \
-  com.armsx2; do
+  com.armsx2 \
+  com.izzy2lost.x1box \
+  xendroid.compose \
+  dev.eden.eden_emulator; do
   if package_installed "$package_name"; then
     note "Native Android gamepad input available: $package_name"
   fi

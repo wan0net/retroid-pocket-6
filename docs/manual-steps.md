@@ -28,7 +28,10 @@ guarded by an Android confirmation screen.
 10. Supply only your own ROMs, BIOS/firmware, keys and game files. Nothing in
    this project downloads them.
 11. For ES-DE Companion, follow its onboarding and grant all-files access. Enable
-   Custom Event Scripts, Browsing Custom Event Scripts and Debug Mode in ES-DE.
+    Custom Event Scripts, Browsing Custom Event Scripts and Debug Mode in ES-DE.
+12. Complete X1 BOX's setup wizard with MCPX, BIOS and HDD files dumped from
+    your own Xbox. Configure XenDroid per title as needed; Xbox 360 support is
+    still experimental. Import firmware and keys from your own Switch into Eden.
 
 Dolphin controller mappings are not a manual prerequisite. If Dolphin was
 installed after the initial setup, run `make configure-dolphin`. Individual

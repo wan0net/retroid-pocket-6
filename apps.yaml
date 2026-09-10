@@ -69,6 +69,21 @@ apps:
     source: https://github.com/ARMSX2/ARMSX2
     profiles: [standard, dual-screen]
     notes: Open-source ARM64 PS2 emulator; still maturing, so compatibility varies.
+  - name: X1 BOX
+    package: com.izzy2lost.x1box
+    source: https://github.com/WinDroidEmulation/x1-box
+    profiles: [standard, dual-screen]
+    notes: Experimental original Xbox emulator based on xemu; requires user-supplied console files and legally dumped games.
+  - name: XenDroid
+    package: xendroid.compose
+    source: https://github.com/rfandango/XenDroid
+    profiles: [standard, dual-screen]
+    notes: Experimental Xbox 360 emulator; Snapdragon 8 Gen 2 and Adreno 740 are its documented minimum target.
+  - name: Eden
+    package: dev.eden.eden_emulator
+    source: https://stable.eden-emu.dev/latest/release.json
+    profiles: [standard, dual-screen]
+    notes: Stable standard Android build from Eden's official self-hosted release feed; firmware and keys are never bundled.
   - name: Moonlight
     package: com.limelight
     source: https://github.com/moonlight-stream/moonlight-android

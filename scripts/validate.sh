@@ -12,7 +12,8 @@ for manifest in obtainium/apps.json obtainium/apps-dual-screen.json; do
   jq -e '
     (.apps | type == "array" and length >= 9) and
     (.settings | type == "object") and
-    ([.apps[] | has("id") and has("url") and has("author") and has("name")] | all)
+    ([.apps[] | has("id") and has("url") and has("author") and has("name")] | all) and
+    ([.apps[] | (.additionalSettings | fromjson | type == "object")] | all)
   ' "$manifest" >/dev/null
   duplicates="$(jq -r '.apps[].id' "$manifest" | sort | uniq -d)"
   [[ -z "$duplicates" ]] || { printf 'duplicate package IDs in %s: %s\n' "$manifest" "$duplicates" >&2; exit 1; }
@@ -35,6 +36,12 @@ duplicates="$(awk -F '\t' '!/^[[:space:]]*(#|$)/ {print $1}' \
   config/es-de/emulators.tsv | sort | uniq -d)"
 [[ -z "$duplicates" ]] \
   || { printf 'duplicate ES-DE systems: %s\n' "$duplicates" >&2; exit 1; }
+
+if command -v xmllint >/dev/null 2>&1; then
+  xmllint --noout config/es-de/custom_systems/*.xml
+else
+  printf '%s\n' 'warning: xmllint unavailable; skipped XML parse check' >&2
+fi
 
 if command -v shellcheck >/dev/null 2>&1; then
   shellcheck scripts/*.sh
