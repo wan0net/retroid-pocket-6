@@ -15,6 +15,16 @@ apps:
     source: https://github.com/MuntashirAkon/AppManager
     profiles: [standard, dual-screen]
     notes: Open-source package, permission and process inspection utility.
+  - name: Aurora Store
+    package: com.aurora.store
+    source: https://gitlab.com/AuroraOSS/AuroraStore
+    profiles: [standard, dual-screen]
+    notes: Unofficial open-source Google Play client; anonymous mode supports free apps.
+  - name: Brave Browser
+    package: com.brave.browser
+    source: https://github.com/brave/brave-browser
+    profiles: [standard, dual-screen]
+    notes: Maintained Chromium browser with built-in tracker and ad blocking.
   - name: GameNative
     package: app.gamenative
     source: https://github.com/utkarshdalal/GameNative
@@ -69,6 +79,14 @@ apps:
     profiles: [dual-screen]
     notes: Semi-official and rapidly evolving; expect setup changes or rough edges.
 manual_apps:
+  - name: Discord
+    packages: [com.discord]
+    source: https://discord.com/download
+    reason: Official Android distribution is through Google Play; install from Aurora Store.
+  - name: 1Password
+    packages: [com.onepassword.android]
+    source: https://1password.com/downloads/android
+    reason: Security-sensitive proprietary app; install the official Play build from Aurora Store.
   - name: ES-DE
     packages: [org.es_de.frontend, com.es_de.frontend]
     source: https://es-de.org

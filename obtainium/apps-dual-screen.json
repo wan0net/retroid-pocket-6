@@ -14,6 +14,28 @@
       "overrideSource": "GitHub"
     },
     {
+      "id": "com.aurora.store",
+      "url": "https://gitlab.com/AuroraOSS/AuroraStore",
+      "author": "AuroraOSS",
+      "name": "Aurora Store",
+      "preferredApkIndex": 0,
+      "additionalSettings": "{\"includePrereleases\":false,\"fallbackToOlderReleases\":true,\"filterReleaseTitlesByRegEx\":\"\",\"filterReleaseNotesByRegEx\":\"\",\"verifyLatestTag\":false,\"sortMethodChoice\":\"date\",\"useLatestAssetDateAsReleaseDate\":false,\"releaseTitleAsVersion\":false,\"gitlab-creds\":\"\",\"trackOnly\":false,\"versionExtractionRegEx\":\"\",\"matchGroupToUse\":\"\",\"versionDetection\":true,\"releaseDateAsVersion\":false,\"useVersionCodeAsOSVersion\":false,\"apkFilterRegEx\":\"^AuroraStore-[0-9.]+\\\\.apk$\",\"invertAPKFilter\":false,\"autoApkFilterByArch\":true,\"appName\":\"Aurora Store\",\"appAuthor\":\"AuroraOSS\",\"shizukuPretendToBeGooglePlay\":false,\"allowInsecure\":false,\"exemptFromBackgroundUpdates\":false,\"skipUpdateNotifications\":false,\"about\":\"Open-source client for free apps from Google Play\",\"refreshBeforeDownload\":false,\"includeZips\":false,\"zippedApkFilterRegEx\":\"\"}",
+      "categories": ["Utilities"],
+      "allowIdChange": false,
+      "overrideSource": "GitLab"
+    },
+    {
+      "id": "com.brave.browser",
+      "url": "https://github.com/brave/brave-browser",
+      "author": "brave",
+      "name": "Brave Browser",
+      "preferredApkIndex": 0,
+      "additionalSettings": "{\"includePrereleases\":false,\"fallbackToOlderReleases\":true,\"filterReleaseTitlesByRegEx\":\"\",\"filterReleaseNotesByRegEx\":\"\",\"verifyLatestTag\":false,\"sortMethodChoice\":\"date\",\"useLatestAssetDateAsReleaseDate\":false,\"releaseTitleAsVersion\":false,\"github-creds\":\"\",\"GHReqPrefix\":\"\",\"trackOnly\":false,\"versionExtractionRegEx\":\"\",\"matchGroupToUse\":\"\",\"versionDetection\":true,\"releaseDateAsVersion\":false,\"useVersionCodeAsOSVersion\":false,\"apkFilterRegEx\":\"^Bravearm64Universal\\\\.apk$\",\"invertAPKFilter\":false,\"autoApkFilterByArch\":false,\"appName\":\"Brave Browser\",\"appAuthor\":\"Brave Software\",\"shizukuPretendToBeGooglePlay\":false,\"allowInsecure\":false,\"exemptFromBackgroundUpdates\":false,\"skipUpdateNotifications\":false,\"about\":\"Maintained Chromium browser with tracker and ad blocking\",\"refreshBeforeDownload\":false,\"includeZips\":false,\"zippedApkFilterRegEx\":\"\"}",
+      "categories": ["Browser"],
+      "allowIdChange": false,
+      "overrideSource": "GitHub"
+    },
+    {
       "id": "org.azahar_emu.azahar",
       "url": "https://github.com/azahar-emu/azahar",
       "author": "azahar-emu",

@@ -68,12 +68,16 @@ the break-glass override casually.
 
 ## App catalogue
 
-Both profiles include App Manager, Cocoon Shell, GameNative (for games already
-owned on Steam/Epic/GOG), RetroArch AArch64, Dolphin, Azahar, PPSSPP, Vita3K,
-ARMSX2 and Moonlight.
+Both profiles include App Manager, Aurora Store, Brave Browser, Cocoon Shell,
+GameNative (for games already owned on Steam/Epic/GOG), RetroArch AArch64,
+Dolphin, Azahar, PPSSPP, Vita3K, ARMSX2 and Moonlight.
 
 - Standard uses upstream melonDS.
 - Dual-screen swaps in WatermelonDS and adds ES-DE Companion.
+- Aurora Store provides access to free apps directly from Google Play servers
+  without enabling the Play Store. Discord and 1Password remain manual installs
+  through Aurora because their publishers do not provide a stable upstream APK
+  release channel suitable for Obtainium.
 - ES-DE itself is manual because its Android build is paid and cannot be
   redistributed. The toolkit can install a locally supplied APK with
   `--es-de-apk`, but never downloads or commits it.

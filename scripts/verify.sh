@@ -34,6 +34,10 @@ check_package() {
 
 check_package dev.imranr.obtainium Obtainium
 check_package io.github.muntashirakon.AppManager 'App Manager'
+check_package com.aurora.store 'Aurora Store'
+check_package com.brave.browser 'Brave Browser'
+check_package com.discord Discord 0
+check_package com.onepassword.android 1Password 0
 check_package app.gamenative GameNative
 check_package rip.moth.cocoonshell 'Cocoon Shell'
 check_package com.retroarch.aarch64 'RetroArch AArch64'
