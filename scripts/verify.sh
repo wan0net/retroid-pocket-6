@@ -111,7 +111,9 @@ done
 
 if (( missing )); then
   note "$missing selected app(s) or directory check(s) remain."
-  (( strict )) && exit 1
+  if (( strict )); then
+    exit 1
+  fi
 else
   note 'All selected app and directory checks passed.'
 fi
