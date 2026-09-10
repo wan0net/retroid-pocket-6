@@ -28,7 +28,9 @@ check_package() {
     printf 'installed  %-24s %s\n' "$package" "$label"
   else
     printf 'missing    %-24s %s\n' "$package" "$label"
-    (( required )) && missing=$((missing + 1))
+    if (( required )); then
+      missing=$((missing + 1))
+    fi
   fi
 }
 
